@@ -10,11 +10,11 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
 var app = express();
-// let port = process.env.PORT || 3000;
+let port = process.env.PORT || 3000;
 
-// app.listen(port, () => {
-//   console.log(`Server Running on port: http://localhost:${port}`);
-// });
+app.listen(port, () => {
+  console.log(`Server Running on port: http://localhost:${port}`);
+});
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

@@ -113,13 +113,13 @@ router.post("/reset-password", async function (req, res, next) {
 });
 
 /* GET Account Screen - Remplissage auto des inputs */
-router.get("/account-screen/:token", async function (req, res) {
-  var findUserBDDFromToken = await userModel.findOne({
-    token: req.params.token,
-  });
+// router.get("/account-screen/:token", async function (req, res) {
+//   var findUserBDDFromToken = await userModel.findOne({
+//     token: req.params.token,
+//   });
 
-  res.json({ findUserBDDFromToken });
-});
+//   res.json({ findUserBDDFromToken });
+// });
 
 router.post("/account-screen", async function (req, res, next) {
   var userFromBDD = await userModel.findOne({ token: req.body.tokenFromFront });
@@ -161,22 +161,22 @@ router.post("/reservation", async function (req, res, next) {
 });
 
 //querring the BDD
-router.get("/reservation", async function (req, res, next) {
-  var userConnected = await userModel.findOne({
-    token: req.body.tokenFromRedux,
-  });
-  // if (userConnected.token == req.body.tokenFromRedux) {
-  //   var reservations = userConnected.reservations;
-  // }
-  var userReservations = [];
+// router.get("/reservation", async function (req, res, next) {
+//   var userConnected = await userModel.findOne({
+//     token: req.body.tokenFromRedux,
+//   });
+//   // if (userConnected.token == req.body.tokenFromRedux) {
+//   //   var reservations = userConnected.reservations;
+//   // }
+//   var userReservations = [];
 
-  var result = false;
+//   var result = false;
 
-  if (userConnected !== null) {
-    userReservations = userConnected.reservations;
-    result = true;
-  }
-  res.json({ userReservations, result });
-});
+//   if (userConnected !== null) {
+//     userReservations = userConnected.reservations;
+//     result = true;
+//   }
+//   res.json({ userReservations, result });
+// });
 
 module.exports = router;
